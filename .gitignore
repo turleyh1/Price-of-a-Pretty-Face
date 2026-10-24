@@ -1,0 +1,22 @@
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.quarto/
+.Rproj.user/
+*.Rproj
+.env
+.Renviron
+
+
+# data files
+Change_Notice50.pdf
+crosswalk_revert_rename.do
+respidpub_idpub_crosswalk.dta
+wls_main_public_2026_v1.dta
+wls_main_public_2026_v1.dta
+wls_new_varname_crosswalk.tsv
+wls_new_varname_crosswalk.xlsx
+
+/.quarto/
+**/*.quarto_ipynb
