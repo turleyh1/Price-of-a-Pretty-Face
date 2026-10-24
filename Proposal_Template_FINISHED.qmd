@@ -1,0 +1,135 @@
+---
+title: "The Price of a Pretty Face: Does Attractiveness Pay When Controlling for Intelligence?"
+subtitle: "STAT 330 Portfolio Project Proposal"
+author: "Bradley Swalberg, Henri Ly, Heidi Turley"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+    code-summary: "Show code"
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+## Group members**:** Bradley Swalberg, Henri Ly, Heidi Turley
+
+## Question and audience
+
+How do physical attractiveness, height, and cognitive ability independently impact an individual's annual salary when holding the other variables constant? This analysis is intended for labor economists and HR professionals in order to quantify unconscious workplace biases and isolate the benefits of beauty from actual cognitive merit.
+
+## Data
+
+**Source and Citation** The data is drawn from the Wisconsin Longitudinal Study (WLS) Version 2026_v1, accessible at <https://researchers.wls.wisc.edu/documentation/>. The recommended summary citation is Herd, P., Carr, D., & Roan, C. (2014), *International Journal of Epidemiology*, 43, 34–41.
+
+**Observational Unit and Dimensions** The observational unit is an individual 1957 high school graduate from Wisconsin. The dataset is a 405 MB `.dta` file containing approximately 12,500 variables across over 10,000 longitudinal participant records.
+
+**Variables and Evidence**
+
+- **Response:** Annual income from wages, salaries, commissions, and tips (`r04_z_p001re_i`).
+
+- **Predictors:** Physical height (`r06_z_x010rec_q`), perceived attractiveness (`r06_z_a103rea_i`), and cognitive ability/IQ (`ad_g_gwiiq_j`).
+
+- **Evidence:** The data supports the regression question because it tracks verified IQ test scores, physical measurements, and later-in-life income for the exact same individuals, allowing an OLS model to isolate variables and hold specific traits constant.
+
+**Collection Process** The WLS collected data longitudinally across multiple decades via participant surveys, administrative high school records (for Henmon-Nelson IQ scores), and independent panel evaluations of 1957 high school yearbook photographs to generate the physical attractiveness metric.
+
+**Permissions and Ethical Concerns**
+
+- **Permissions:** As detailed when downloading the data, researchers must process it locally. Uploading raw WLS participant records to external AI platforms (like ChatGPT, Claude, Gemini, or other LLM's) is explicitly prohibited due to data retention and confidentiality risks.
+
+- **Ethics and Representation:** Users must agree to make no attempts to de-anonymize participants. Additionally, the data represents a specific 1957 midwestern cohort, limiting modern demographic generalization, and evaluating attractiveness from static yearbook photos introduces subjective measurement bias.
+
+```{r}
+library(haven)
+library(dplyr)
+
+my_data <- read_dta("wls_main_public_2026_v1.dta")
+
+my_subset <- my_data |>
+  select(
+    height = r06_z_x010rec_q,
+    looks = r06_z_a103rea_i,
+    iq = ad_g_gwiiq_j,
+    income = r04_z_p001re_i
+  ) |>
+  filter(
+    height >= 0,
+    looks >= 0,
+    iq >= 0,
+    income >= 0
+  ) |>
+  na.omit()
+
+head(my_subset)
+```
+
+## One useful first look
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+my_subset |>
+  pivot_longer(
+    cols = c(height, looks, iq),
+    names_to = "predictor",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = value, y = income)) +
+  geom_point(alpha = 0.65) +
+  facet_wrap(~ predictor, scales = "free_x") +
+  labs(
+    x = NULL,
+    y = "income",
+    title = "Income compared with each predictor"
+  )
+
+cor_long <- as.data.frame(as.table(cor(my_subset))) |>
+  as_tibble() |>
+  rename(
+    var_1 = Var1, 
+    var_2 = Var2, 
+    correlation = Freq
+  )
+
+ggplot(cor_long, aes(x = var_1, y = var_2, fill = correlation)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(correlation, 2))) +
+  scale_fill_gradient2(midpoint = 0, limits = c(-1, 1)) +
+  coord_equal()
+```
+
+**In two to four sentences, explain the most important pattern. Do not make a causal claim unless the study design supports one.** According to the scatter plots, there doesn't appear to be a linear relationship between income and the 3 predictors (height, looks, and IQ). Looks may have a more exponential relationship. All the predictors have a relatively low correlation to each other, so multicollinearity shouldn't be a problem.
+
+## Baseline model
+
+**Name and justify one simple starting model.**
+
+```{r}
+
+# Fit the baseline and display only the output needed below. 
+model_fit <- lm(income ~ height + looks + iq, data = my_subset)  
+summary(model_fit)
+```
+
+**Interpret one important coefficient, contrast, or prediction in context. Include direction, magnitude, units or scale, and uncertainty. Then identify one specific limitation, unexplained pattern, or opportunity for improvement.**
+
+Holding height and IQ constant, a one unit increase in looks, or perceived attractiveness, is associated with a \$1126.07 increase in salary.
+
+One limitation to this is that perceived attractiveness is based on surveys and thus is mostly subjective in contrast to the other variables which are all objectively measured.
+
+## Where the analysis could go
+
+**Choose two different course-method families from the project instructions. For each, state what you might do and how it could help answer the question. These methods will form the core of the project and may change after feedback.**
+
+1.  **Possible direction:** One thing we will probably want to try is a transformation on the model structure. Like we saw from the scatter plots, the relationship doesn't appear to be linear, so we will want to try out maybe exponential or log to see if that better fits the data.
+2.  **Possible direction:** We will also want to do cross validation to try and predict someones salary based on height, looks, and iq.
+
+## AI disclosure and sources
+
+**Disclose any AI used for debugging, proofreading, or other help with the proposal. This does not satisfy the required AI extension. Write “No AI used” if applicable. Cite the dataset and any other sources that materially informed the proposal.**
+
+We used AI to come up with a title and proofread this draft.
