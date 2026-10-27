@@ -47,25 +47,11 @@ Hi I added something. hi back
 ```{r}
 library(haven)
 library(dplyr)
+library(tidyverse)
 
-my_data <- read_dta("wls_main_public_2026_v1.dta")
+my_data <- read_csv("data.csv")
 
-my_subset <- my_data |>
-  select(
-    height = r06_z_x010rec_q,
-    looks = r06_z_a103rea_i,
-    iq = ad_g_gwiiq_j,
-    income = r04_z_p001re_i
-  ) |>
-  filter(
-    height >= 0,
-    looks >= 0,
-    iq >= 0,
-    income >= 0
-  ) |>
-  na.omit()
-
-head(my_subset)
+head(my_data)
 ```
 
 ## One useful first look
@@ -111,9 +97,8 @@ ggplot(cor_long, aes(x = var_1, y = var_2, fill = correlation)) +
 **Name and justify one simple starting model.**
 
 ```{r}
-
 # Fit the baseline and display only the output needed below. 
-model_fit <- lm(income ~ height + looks + iq, data = my_subset)  
+model_fit <- lm(income ~ height + looks + iq + sex + bmi + waist, data = my_data)  
 summary(model_fit)
 ```
 
