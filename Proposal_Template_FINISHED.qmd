@@ -20,6 +20,8 @@ execute:
 
 How do physical attractiveness, height, and cognitive ability independently impact an individual's annual salary when holding the other variables constant? This analysis is intended for labor economists and HR professionals in order to quantify unconscious workplace biases and isolate the benefits of beauty from actual cognitive merit.
 
+Hi I added something
+
 ## Data
 
 **Source and Citation** The data is drawn from the Wisconsin Longitudinal Study (WLS) Version 2026_v1, accessible at <https://researchers.wls.wisc.edu/documentation/>. The recommended summary citation is Herd, P., Carr, D., & Roan, C. (2014), *International Journal of Epidemiology*, 43, 34–41.
