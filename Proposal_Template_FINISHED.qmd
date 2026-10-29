@@ -20,7 +20,7 @@ execute:
 
 How do physical attractiveness, height, and cognitive ability independently impact an individual's annual salary when holding the other variables constant? This analysis is intended for labor economists and HR professionals in order to quantify unconscious workplace biases and isolate the benefits of beauty from actual cognitive merit.
 
-Hi I added something. hi back 
+Hi I added something. hi back
 
 ## Data
 
@@ -50,6 +50,7 @@ library(dplyr)
 library(tidyverse)
 
 my_data <- read_csv("data.csv")
+my_data <- my_data |> mutate(sex = sex - 1)
 
 head(my_data)
 ```
@@ -57,10 +58,12 @@ head(my_data)
 ## One useful first look
 
 ```{r}
+#| fig-width: 8
+#| fig-height: 6
 library(ggplot2)
 library(tidyr)
 
-my_subset |>
+my_data |>
   pivot_longer(
     cols = c(height, looks, iq),
     names_to = "predictor",
@@ -75,7 +78,7 @@ my_subset |>
     title = "Income compared with each predictor"
   )
 
-cor_long <- as.data.frame(as.table(cor(my_subset))) |>
+cor_long <- as.data.frame(as.table(cor(my_data))) |>
   as_tibble() |>
   rename(
     var_1 = Var1, 
