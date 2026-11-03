@@ -18,9 +18,7 @@ execute:
 
 ## Question and audience
 
-How do physical attractiveness, height, and cognitive ability independently impact an individual's annual salary when holding the other variables constant? This analysis is intended for labor economists and HR professionals in order to quantify unconscious workplace biases and isolate the benefits of beauty from actual cognitive merit.
-
-Hi I added something. hi back 
+How do physical attractiveness, height, and cognitive ability independently impact an individual's annual salary when holding the other variables constant, including sex, BMI, and waist circumference? This analysis is intended for labor economists and HR professionals in order to quantify unconscious workplace biases and isolate the benefits of beauty from actual cognitive merit.
 
 ## Data
 
@@ -30,9 +28,9 @@ Hi I added something. hi back
 
 **Variables and Evidence**
 
-- **Response:** Annual income from wages, salaries, commissions, and tips (`r04_z_p001re_i`).
+- **Response:** Annual income from wages, salaries, commissions, and tips.
 
-- **Predictors:** Physical height (`r06_z_x010rec_q`), perceived attractiveness (`r06_z_a103rea_i`), and cognitive ability/IQ (`ad_g_gwiiq_j`).
+- **Predictors** Physical height, perceived attractiveness, cognitive ability/IQ, sex, BMI (body mass index), and waist circumference. Sex is included as it may be related to both income and how attractiveness is rated. BMI and waist circumference are included together because BMI cannot separate muscle from fat. A person with a high BMI and a small waist likely carries more muscle, while a person with a high BMI and a large waist likely carries more fat. 
 
 - **Evidence:** The data supports the regression question because it tracks verified IQ test scores, physical measurements, and later-in-life income for the exact same individuals, allowing an OLS model to isolate variables and hold specific traits constant.
 
@@ -59,23 +57,34 @@ head(my_data)
 ```{r}
 library(ggplot2)
 library(tidyr)
+library(scales)
 
-my_subset |>
+my_data |>
   pivot_longer(
-    cols = c(height, looks, iq),
+    cols = c(height, looks, iq, bmi, waist),
     names_to = "predictor",
     values_to = "value"
   ) |>
   ggplot(aes(x = value, y = income)) +
   geom_point(alpha = 0.65) +
   facet_wrap(~ predictor, scales = "free_x") +
+  scale_y_continuous(labels = label_dollar()) +
   labs(
     x = NULL,
-    y = "income",
-    title = "Income compared with each predictor"
+    y = "Income",
+    title = "Income compared with each numeric predictor"
   )
 
-cor_long <- as.data.frame(as.table(cor(my_subset))) |>
+ggplot(my_data, aes(x = factor(sex, levels = c(1, 2), labels = c("Male", "Female")), y = income)) +
+  geom_boxplot() +
+  scale_y_continuous(labels = label_dollar()) +
+  labs(x = "Sex", y = "Income", title = "Income by sex")
+
+cor_long <- my_data |>
+  select(where(is.numeric)) |>
+  cor(use = "complete.obs") |>
+  as.table() |>
+  as.data.frame() |>
   as_tibble() |>
   rename(
     var_1 = Var1, 
@@ -90,7 +99,9 @@ ggplot(cor_long, aes(x = var_1, y = var_2, fill = correlation)) +
   coord_equal()
 ```
 
-**In two to four sentences, explain the most important pattern. Do not make a causal claim unless the study design supports one.** According to the scatter plots, there doesn't appear to be a linear relationship between income and the 3 predictors (height, looks, and IQ). Looks may have a more exponential relationship. All the predictors have a relatively low correlation to each other, so multicollinearity shouldn't be a problem.
+**In two to four sentences, explain the most important pattern. Do not make a causal claim unless the study design supports one.** According to the scatter plots, there doesn't appear to be a strong linear relationship between income and height, looks, iq, or bmi. Looks and height may have a more exponential relationship, although could also be argued as moderately linear. 
+
+Most of the predictors have low correlations with each other, but height and sex are strongly correlated (about -0.75), which makes sense since men tend to be taller than women. Because of this, multicollinearity between height and sex could make the height coefficient less precise, so we will check it with variance inflation factors in the full analysis.
 
 ## Baseline model
 
@@ -104,7 +115,7 @@ summary(model_fit)
 
 **Interpret one important coefficient, contrast, or prediction in context. Include direction, magnitude, units or scale, and uncertainty. Then identify one specific limitation, unexplained pattern, or opportunity for improvement.**
 
-Holding height and IQ constant, a one unit increase in looks, or perceived attractiveness, is associated with a \$1126.07 increase in salary.
+Holding height and IQ constant, a one unit increase in looks, or perceived attractiveness, is associated with a \$1658.07 increase in salary.
 
 One limitation to this is that perceived attractiveness is based on surveys and thus is mostly subjective in contrast to the other variables which are all objectively measured.
 
@@ -119,4 +130,4 @@ One limitation to this is that perceived attractiveness is based on surveys and 
 
 **Disclose any AI used for debugging, proofreading, or other help with the proposal. This does not satisfy the required AI extension. Write “No AI used” if applicable. Cite the dataset and any other sources that materially informed the proposal.**
 
-We used AI to come up with a title and proofread this draft.
+We used AI to come up with a title and proofread this draft. We also used AI to make our ggplots more visually aesthetic (added $ to the y axis using the scales package and facet wrap to view scatterplots side by side). 
