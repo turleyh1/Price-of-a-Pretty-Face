@@ -43,7 +43,7 @@ quarto preview
 
 ## Current project status
 
-The proposal reads `data.csv` and fits a preliminary linear model using all six listed predictors. The exploratory plotting code still refers to `my_subset`, which is not defined in the current QMD (the loaded data frame is `my_data`), so fix those references before rendering. The tracked HTML may also be out of date relative to the QMD. The portfolio site remains a template and needs its prompts replaced with the completed analysis.
+The proposal reads `data.csv` and fits a preliminary linear model using all six listed predictors. The portfolio site remains a template and needs its prompts replaced with the completed analysis.
 
 Attractiveness ratings are subjective, and the study represents a specific historical cohort. These limits should be considered when interpreting results or generalizing them to other populations.
 
