@@ -1,9 +1,9 @@
 ---
-title: "Replace with a specific, informative title"
-subtitle: "Replace with one sentence that tells readers why the question matters"
-author: "Replace with all group members' names"
+title: "The Price of a Pretty Face: Does Attractiveness Pay When Controlling for Intelligence?"
+subtitle: "If looks are linked to pay beyond intelligence, workplaces may be rewarding appearance instead of ability."
+author: "Bradley Swalberg, Henri Ly, Heidi Turley"
 date: last-modified
-description: "Replace with a brief description for link previews."
+description: "An analysis of whether perceived attractiveness is associated with income after accounting for height, IQ, sex, BMI, and waist circumference."
 ---
 
 **Narrative word count:** Replace with a number from 750 to 1,000.
@@ -14,7 +14,9 @@ This template suggests one way to tell the story. You may rename, combine, or re
 
 ## The question
 
-**In one or two short paragraphs, introduce the setting, audience, focused research question, data source, observational unit, response, important predictors, and one important data limitation. Lead with what makes the question worth answering.**
+**Is being more attractive associated with earning more, even after accounting for intelligence? This matters for labor economists and HR professionals, since a salary bonus for looks that ability doesn't explain could point to bias in the workplace. Our data comes from the Wisconsin Longitudinal Study, where each observation is a 1957 Wisconsin high school graduate. The response is annual income, and the predictors are perceived attractiveness, height, IQ, sex, BMI, and waist circumference.
+
+One important limitation is that attractiveness was rated from yearbook photos, so it is a subjective measure. The cohort is also a specific group from one place and time, which limits how far the results generalize.**
 
 ## What the baseline shows
 
@@ -64,7 +66,7 @@ Details are in the [AI-use record](ai-use.qmd).
 
 ## Data and code
 
-- **Data:** Replace with a working source link or citation and any brief acquisition note needed to reproduce the project.
-- **Repository:** Replace with your repository URL.
+- **Data:** Wisconsin Longitudinal Study, <https://researchers.wls.wisc.edu/documentation/>. Herd, P., Carr, D., & Roan, C. (2014). *International Journal of Epidemiology*, 43, 34–41.
+- **Repository:** <https://github.com/turleyh1/Price-of-a-Pretty-Face>
 - [AI-use record](ai-use.qmd)
 - **Other sources:** Cite package documentation, articles, code, and other sources that materially informed the work.
