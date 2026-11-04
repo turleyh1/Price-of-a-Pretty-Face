@@ -1,7 +1,7 @@
 ---
 title: "The Price of a Pretty Face: Does Attractiveness Pay When Controlling for Intelligence?"
 subtitle: "If looks are linked to pay beyond intelligence, workplaces may be rewarding appearance instead of ability."
-author: "Bradley Swalberg, Henri Ly, Heidi Turley"
+author: "Bradley Swalberg, Heidi Turley, Henri Ly"
 date: last-modified
 description: "An analysis of whether perceived attractiveness is associated with income after accounting for height, IQ, sex, BMI, and waist circumference."
 ---
