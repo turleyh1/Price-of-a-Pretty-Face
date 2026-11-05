@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Replace with all group members’ names">
+<meta name="author" content="Heidi Turley, Henri Ly, Bradley Swalberg">
 <meta name="description" content="A concise record of AI-supported work on this project.">
 
 <title>AI Use and Verification – STAT 330 Portfolio</title>
@@ -2520,7 +2520,80 @@ vertical-align: -.125em;
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<style type="text/css">:root {--portfolio-navy: #17324d;--portfolio-blue: #2f6f9f;--portfolio-pale: #eef5fa;--portfolio-border: #d7e0e7;}body {color: #202830;max-width: 100%;overflow-x: hidden;}h1, h2, h3 {color: var(--portfolio-navy);}h2 {border-bottom: 1px solid var(--portfolio-border);padding-bottom: 0.25rem;}.navbar {box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);}.quarto-title-block .description {color: #465666;font-size: 1.05rem;}table {display: block;width: 100%;max-width: 100%;overflow-x: auto;border-color: var(--portfolio-border);}main,.content,#quarto-content {min-width: 0;max-width: 100%;}p,li,h1,h2,h3 {overflow-wrap: break-word;}thead {background: var(--portfolio-navy);color: white;}tbody tr:nth-child(even) {background: #f7f9fb;}blockquote {border-left: 4px solid var(--portfolio-blue);background: var(--portfolio-pale);padding: 0.85rem 1rem;}.callout {border-radius: 0.25rem;}@media (max-width: 768px) {body {font-size: 0.98rem;}.quarto-title h1.title {font-size: 1.85rem;line-height: 1.15;overflow-wrap: anywhere;}table {font-size: 0.88rem;}}</style>
+<style type="text/css">:root {
+--portfolio-navy: #17324d;
+--portfolio-blue: #2f6f9f;
+--portfolio-pale: #eef5fa;
+--portfolio-border: #d7e0e7;
+}
+body {
+color: #202830;
+max-width: 100%;
+overflow-x: hidden;
+}
+h1, h2, h3 {
+color: var(--portfolio-navy);
+}
+h2 {
+border-bottom: 1px solid var(--portfolio-border);
+padding-bottom: 0.25rem;
+}
+.navbar {
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.quarto-title-block .description {
+color: #465666;
+font-size: 1.05rem;
+}
+table {
+display: block;
+width: 100%;
+max-width: 100%;
+overflow-x: auto;
+border-color: var(--portfolio-border);
+}
+main,
+.content,
+#quarto-content {
+min-width: 0;
+max-width: 100%;
+}
+p,
+li,
+h1,
+h2,
+h3 {
+overflow-wrap: break-word;
+}
+thead {
+background: var(--portfolio-navy);
+color: white;
+}
+tbody tr:nth-child(even) {
+background: #f7f9fb;
+}
+blockquote {
+border-left: 4px solid var(--portfolio-blue);
+background: var(--portfolio-pale);
+padding: 0.85rem 1rem;
+}
+.callout {
+border-radius: 0.25rem;
+}
+@media (max-width: 768px) {
+body {
+font-size: 0.98rem;
+}
+.quarto-title h1.title {
+font-size: 1.85rem;
+line-height: 1.15;
+overflow-wrap: anywhere;
+}
+table {
+font-size: 0.88rem;
+}
+}
+</style>
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -2592,7 +2665,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Replace with all group members’ names </p>
+             <p>Heidi Turley, Henri Ly, Bradley Swalberg </p>
           </div>
   </div>
     
@@ -2608,14 +2681,22 @@ vertical-align: -.125em;
 <p>This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range.</p>
 <section id="starting-point" class="level2">
 <h2 class="anchored" data-anchor-id="starting-point">Starting point</h2>
-<p><strong>AI system and date:</strong> Replace.</p>
+<p><strong>AI system and date:</strong> We use Claude and Gemini</p>
 <p><strong>Before using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.</strong></p>
+<p><strong>Question:</strong> Is being more attractive associated with earning more, even after accounting for intelligence?</p>
+<p><strong>Model:</strong> model_fit &lt;- lm(income ~ height + looks + iq, data = my_subset)</p>
+<p><strong>Baseline Results:</strong> According to the scatter plots, there doesn’t appear to be a linear relationship between income and the 3 predictors (height, looks, and IQ). Looks may have a more exponential relationship. All the predictors have a relatively low correlation to each other, so multicollinearity shouldn’t be a problem.</p>
+<p><strong>Things to address:</strong></p>
+<ul>
+<li>We should add in a predictor for sex to account for the differences between men and women</li>
+<li>We should add in a predictor assosiated with weight since that tends to be assosiated with attractiveness, but weight is too general since an overweight person and a person with lots of muscle can have similar weights but very different physiques</li>
+</ul>
 </section>
 <section id="substantive-prompts" class="level2">
 <h2 class="anchored" data-anchor-id="substantive-prompts">Substantive prompts</h2>
 <p>Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.</p>
 <blockquote class="blockquote">
-<p>Replace with an exact prompt.</p>
+<p>Replace with an exact prompt. (maybe use prompt that helped lead us to bmi and waist size)</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Replace with another exact prompt, if needed.</p>

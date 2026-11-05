@@ -11,14 +11,14 @@
     "href": "ai-use.html#starting-point",
     "title": "AI Use and Verification",
     "section": "Starting point",
-    "text": "Starting point\nAI system and date: Replace.\nBefore using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address."
+    "text": "Starting point\nAI system and date: We use Claude and Gemini\nBefore using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.\nQuestion: Is being more attractive associated with earning more, even after accounting for intelligence?\nModel: model_fit &lt;- lm(income ~ height + looks + iq, data = my_subset)\nBaseline Results: According to the scatter plots, there doesn’t appear to be a linear relationship between income and the 3 predictors (height, looks, and IQ). Looks may have a more exponential relationship. All the predictors have a relatively low correlation to each other, so multicollinearity shouldn’t be a problem.\nThings to address:\n\nWe should add in a predictor for sex to account for the differences between men and women\nWe should add in a predictor assosiated with weight since that tends to be assosiated with attractiveness, but weight is too general since an overweight person and a person with lots of muscle can have similar weights but very different physiques"
   },
   {
     "objectID": "ai-use.html#substantive-prompts",
     "href": "ai-use.html#substantive-prompts",
     "title": "AI Use and Verification",
     "section": "Substantive prompts",
-    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nReplace with an exact prompt.\n\n\nReplace with another exact prompt, if needed."
+    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nReplace with an exact prompt. (maybe use prompt that helped lead us to bmi and waist size)\n\n\nReplace with another exact prompt, if needed."
   },
   {
     "objectID": "ai-use.html#my-decisions",
