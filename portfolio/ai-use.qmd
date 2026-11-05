@@ -1,22 +1,36 @@
 ---
 title: "AI Use and Verification"
 description: "A concise record of AI-supported work on this project."
-author: "Replace with all group members' names"
+author: "Heidi Turley, Henri Ly, Bradley Swalberg"
 ---
 
 This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range.
 
 ## Starting point
 
-**AI system and date:** Replace.
+**AI system and date:** We use Claude and Gemini
 
 **Before using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.**
+
+**Question:** Is being more attractive associated with earning more, even after accounting for intelligence?
+
+**Model:**
+model_fit <- lm(income ~ height + looks + iq, data = my_subset)  
+
+**Baseline Results:**
+According to the scatter plots, there doesn't appear to be a linear relationship between income and the 3 predictors (height, looks, and IQ). Looks may have a more exponential relationship. All the predictors have a relatively low correlation to each other, so multicollinearity shouldn't be a problem.
+
+**Things to address:**
+
+- We should add in a predictor for sex to account for the differences between men and women
+- We should add in a predictor assosiated with weight since that tends to be assosiated with attractiveness, but weight is too general since an overweight person and a person with lots of muscle can have similar weights but very different physiques
+
 
 ## Substantive prompts
 
 Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.
 
-> Replace with an exact prompt.
+> When looking at our model, are their any variables from the WLS dataset that might be confounding our results? Any other predictors we can add? 
 
 > Replace with another exact prompt, if needed.
 
