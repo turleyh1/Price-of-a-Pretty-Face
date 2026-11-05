@@ -30,7 +30,7 @@ According to the scatter plots, there doesn't appear to be a linear relationship
 
 Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.
 
-> Replace with an exact prompt. (maybe use prompt that helped lead us to bmi and waist size)
+> When looking at our model, are their any variables from the WLS dataset that might be confounding our results? Any other predictors we can add? 
 
 > Replace with another exact prompt, if needed.
 
