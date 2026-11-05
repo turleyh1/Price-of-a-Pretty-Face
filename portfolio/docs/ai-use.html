@@ -2520,80 +2520,7 @@ vertical-align: -.125em;
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<style type="text/css">:root {
---portfolio-navy: #17324d;
---portfolio-blue: #2f6f9f;
---portfolio-pale: #eef5fa;
---portfolio-border: #d7e0e7;
-}
-body {
-color: #202830;
-max-width: 100%;
-overflow-x: hidden;
-}
-h1, h2, h3 {
-color: var(--portfolio-navy);
-}
-h2 {
-border-bottom: 1px solid var(--portfolio-border);
-padding-bottom: 0.25rem;
-}
-.navbar {
-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-}
-.quarto-title-block .description {
-color: #465666;
-font-size: 1.05rem;
-}
-table {
-display: block;
-width: 100%;
-max-width: 100%;
-overflow-x: auto;
-border-color: var(--portfolio-border);
-}
-main,
-.content,
-#quarto-content {
-min-width: 0;
-max-width: 100%;
-}
-p,
-li,
-h1,
-h2,
-h3 {
-overflow-wrap: break-word;
-}
-thead {
-background: var(--portfolio-navy);
-color: white;
-}
-tbody tr:nth-child(even) {
-background: #f7f9fb;
-}
-blockquote {
-border-left: 4px solid var(--portfolio-blue);
-background: var(--portfolio-pale);
-padding: 0.85rem 1rem;
-}
-.callout {
-border-radius: 0.25rem;
-}
-@media (max-width: 768px) {
-body {
-font-size: 0.98rem;
-}
-.quarto-title h1.title {
-font-size: 1.85rem;
-line-height: 1.15;
-overflow-wrap: anywhere;
-}
-table {
-font-size: 0.88rem;
-}
-}
-</style>
+<style type="text/css">:root {--portfolio-navy: #17324d;--portfolio-blue: #2f6f9f;--portfolio-pale: #eef5fa;--portfolio-border: #d7e0e7;}body {color: #202830;max-width: 100%;overflow-x: hidden;}h1, h2, h3 {color: var(--portfolio-navy);}h2 {border-bottom: 1px solid var(--portfolio-border);padding-bottom: 0.25rem;}.navbar {box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);}.quarto-title-block .description {color: #465666;font-size: 1.05rem;}table {display: block;width: 100%;max-width: 100%;overflow-x: auto;border-color: var(--portfolio-border);}main,.content,#quarto-content {min-width: 0;max-width: 100%;}p,li,h1,h2,h3 {overflow-wrap: break-word;}thead {background: var(--portfolio-navy);color: white;}tbody tr:nth-child(even) {background: #f7f9fb;}blockquote {border-left: 4px solid var(--portfolio-blue);background: var(--portfolio-pale);padding: 0.85rem 1rem;}.callout {border-radius: 0.25rem;}@media (max-width: 768px) {body {font-size: 0.98rem;}.quarto-title h1.title {font-size: 1.85rem;line-height: 1.15;overflow-wrap: anywhere;}table {font-size: 0.88rem;}}</style>
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -2696,17 +2623,17 @@ font-size: 0.88rem;
 <h2 class="anchored" data-anchor-id="substantive-prompts">Substantive prompts</h2>
 <p>Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.</p>
 <blockquote class="blockquote">
-<p>Replace with an exact prompt. (maybe use prompt that helped lead us to bmi and waist size)</p>
+<p>When looking at our model, are their any variables from the WLS dataset that might be confounding our results? Any other predictors we can add?</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>Replace with another exact prompt, if needed.</p>
+<p>We are building a multiple linear regression model in R to predict salary using WLS data (IQ, facial attractiveness, waist circumference, and gender). We think that there are non-linear interactions with relationships that we haven’t learned about yet (more complex than log or exponential). Can you help us figure out a way to do a transformation that better represent our relationships?</p>
 </blockquote>
 </section>
 <section id="my-decisions" class="level2">
 <h2 class="anchored" data-anchor-id="my-decisions">My decisions</h2>
 <ul>
-<li><strong>Accepted:</strong> What useful advice did you use?</li>
-<li><strong>Changed:</strong> What did you adapt to fit your data or goals?</li>
+<li><strong>Accepted:</strong> It suggested that we control for sex and add in the BMI predictor.</li>
+<li><strong>Changed:</strong> Since I am familiar with BMI and how muscle highly skews it, I asked if there was a way another way to estimate bodyfat, and it suggested to also include waist measurements.</li>
 <li><strong>Rejected or corrected:</strong> What advice was unsuitable, unnecessary, or wrong?</li>
 </ul>
 <p><strong>Connection to the final case study:</strong> Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis.</p>

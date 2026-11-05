@@ -18,14 +18,14 @@
     "href": "ai-use.html#substantive-prompts",
     "title": "AI Use and Verification",
     "section": "Substantive prompts",
-    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nReplace with an exact prompt. (maybe use prompt that helped lead us to bmi and waist size)\n\n\nReplace with another exact prompt, if needed."
+    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nWhen looking at our model, are their any variables from the WLS dataset that might be confounding our results? Any other predictors we can add?\n\n\nWe are building a multiple linear regression model in R to predict salary using WLS data (IQ, facial attractiveness, waist circumference, and gender). We think that there are non-linear interactions with relationships that we haven’t learned about yet (more complex than log or exponential). Can you help us figure out a way to do a transformation that better represent our relationships?"
   },
   {
     "objectID": "ai-use.html#my-decisions",
     "href": "ai-use.html#my-decisions",
     "title": "AI Use and Verification",
     "section": "My decisions",
-    "text": "My decisions\n\nAccepted: What useful advice did you use?\nChanged: What did you adapt to fit your data or goals?\nRejected or corrected: What advice was unsuitable, unnecessary, or wrong?\n\nConnection to the final case study: Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis."
+    "text": "My decisions\n\nAccepted: It suggested that we control for sex and add in the BMI predictor.\nChanged: Since I am familiar with BMI and how muscle highly skews it, I asked if there was a way another way to estimate bodyfat, and it suggested to also include waist measurements.\nRejected or corrected: What advice was unsuitable, unnecessary, or wrong?\n\nConnection to the final case study: Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis."
   },
   {
     "objectID": "ai-use.html#independent-verification",
